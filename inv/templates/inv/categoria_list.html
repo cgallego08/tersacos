@@ -1,0 +1,78 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<!-- Panel Table Add Row -->
+<div class="page">
+    <div class="page-header">
+        <h1 class="page-title">Categorias</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Inv</a></li>
+            <li class="breadcrumb-item active">Categorias</li>
+        </ol>
+    </div>
+    <div class="page-content">
+        <div class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title">Categorias de productos</h3>
+            </header>
+               
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-15">
+                            <button id="addToTable" class="btn btn-primary" type="button">
+                                <i class="icon md-plus" aria-hidden="true"></i> Agregar Categoria
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% if not obj %}
+            <div class="alert alert-primary" role="alert">
+                No hay Categorias
+            </div>
+            {% else %} 
+                <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Descripcion</th>
+                            <th>Estado</th>
+                            <th>F. Creado</th>
+                            <th>F. Modificado</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in obj %}
+                        <tr class="gradeA">
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.descripcion }}</td>
+                            <td>{{ item.estado }}</td>
+                            <td>{{ item.fc|date:"d/m/Y H:i:s" }}</td>
+                            <td>{{ item.fm }}</td>
+                            <td class="actions">
+                                <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
+                                    data-toggle="tooltip" data-original-title="Save" hidden><i class="icon md-wrench"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
+                                    data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon md-close"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                                    data-toggle="tooltip" data-original-title="Edit"><i class="icon md-edit"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+                                    data-toggle="tooltip" data-original-title="Remove"><i class="icon md-delete"
+                                        aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+        </div>
+        <!-- End Panel Table Add Row -->
+    </div>
+</div>
+{% endblock %}
