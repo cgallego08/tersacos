@@ -1,2 +1,52 @@
 {% extends "base/base.html" %}
 
+{% block content %}
+<!-- Panel Table Add Row -->
+<div class="page">
+    <div class="page-header">
+        <h1 class="page-title">Agregar Categorias</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Inv</a></li>
+            <li class="breadcrumb-item active">Agregar Categorias</li>
+        </ol>
+    </div>
+    <div class="page-content">
+        <div class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title">Agregar categorias</h3>
+            </header>
+
+            <form method="POST" class="form-horizontal">
+                {% csrf_token %}
+                <div class="form-group row form-material row">
+                    <label class="col-md-3 form-control-label">Nombre Categoria: </label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="descripcion" id="id_descripcion"
+                            placeholder="Nombre Categoria" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group row form-material row">
+                    <label class="col-md-3 form-control-label">Estado: </label>
+                    <div class="col-md-9">
+                        <div class="checkbox-custom checkbox-default">
+                            <input type="checkbox" id="id_estado" name="estado" checked="" autocomplete="off">
+                            <label for="id_estado">Activo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row form-material row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn btn-primary waves-effect waves-classic">Guardar</button>
+                        <a href="{% url 'inv:categoria_list' %}"
+                            class="btn btn-warning waves-effect waves-classic">Cancelar</a>
+                            <br><br>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

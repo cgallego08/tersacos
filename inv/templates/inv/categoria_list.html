@@ -21,9 +21,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-15">
-                            <button id="addToTable" class="btn btn-primary" type="button">
+                            <a href="{% url 'inv:categoria_new' %}" class="btn btn-primary">
                                 <i class="icon md-plus" aria-hidden="true"></i> Agregar Categoria
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                             <th>Estado</th>
                             <th>F. Creado</th>
                             <th>F. Modificado</th>
-                            <th>Actions</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,10 +59,10 @@
                                     data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon md-close"
                                         aria-hidden="true"></i></a>
                                 <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
-                                    data-toggle="tooltip" data-original-title="Edit"><i class="icon md-edit"
+                                    data-toggle="tooltip" data-original-title="Editar"><i class="icon md-edit"
                                         aria-hidden="true"></i></a>
                                 <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
-                                    data-toggle="tooltip" data-original-title="Remove"><i class="icon md-delete"
+                                    data-toggle="tooltip" data-original-title="Eliminar"><i class="icon md-delete"
                                         aria-hidden="true"></i></a>
                             </td>
                         </tr>
